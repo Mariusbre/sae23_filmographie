@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mise à jour catégorie</title>
+</head>
+<body>
+    <p>Mise à jour de la catégorie</p>
+    <form method="post" action="/appfilmo/categorie/update_traitement_cat/{{id}}/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Mettre à jour">
+    </form>
+</body>
+</html>

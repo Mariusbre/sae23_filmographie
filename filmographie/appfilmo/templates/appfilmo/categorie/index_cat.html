@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catégorie</title>
+</head>
+<body>
+<ol>
+    <a href="/appfilmo/categorie/formulaire_cat">Ajouter une categorie</a>
+    {% for l in liste %}
+    <li> {{l}}
+        <a href="/appfilmo/categorie/affiche_categorie/{{l.id}}/">Affiche</a>
+        <a href="/appfilmo/categorie/update_cat/{{l.id}}/">Mise a jour</a>
+        <a href="/appfilmo/categorie/delete_cat/{{l.id}}/">Supprimer</a>
+    </li>
+    {% endfor %}
+</ol>
+</body>
+</html>

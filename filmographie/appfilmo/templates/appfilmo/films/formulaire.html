@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout d'un film</title>
+</head>
+<body>
+    <p>Ajout d'un film</p>
+    <form method="post" action="/appfilmo/films/affichage/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>
