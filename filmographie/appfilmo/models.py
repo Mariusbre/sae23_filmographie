@@ -4,7 +4,6 @@ from django.db import models
 class Films(models.Model):
     titre = models.CharField(max_length=100)
     realisateur = models.CharField(max_length=100)
-    acteur_principal = models.CharField(max_length=100)
     date_sortie = models.DateField(blank=True, null=True)
     categorie = models.ForeignKey('categorie', on_delete=models.CASCADE, default=None)
 
@@ -13,7 +12,8 @@ class Films(models.Model):
         return chaine
 
     def dico(self):
-        return {"titre": self.titre, "realisateur": self.realisateur, "acteur_principal": self.acteur_principal, "date_sortie": self.date_sortie, "categorie": self.categorie}
+        return {"titre": self.titre, "realisateur": self.realisateur, "date_sortie": self.date_sortie,
+                "categorie": self.categorie}
 
 
 class Categorie(models.Model):
@@ -30,13 +30,30 @@ class Categorie(models.Model):
 class Acteurs(models.Model):
     nom = models.CharField(max_length=100, blank=False)
     prenom = models.CharField(max_length=100, blank=False)
-    age = models.IntegerField(max_length=3,blank=False)
-    film1 = models.ManyToManyField('Films', on_delete=models.CASCADE, default=None)
-    film2 = models.ManyToManyField('Films', on_delete=models.CASCADE, default=None)
-    film3 = models.ManyToManyField('Films', on_delete=models.CASCADE, default=None)
+    age = models.IntegerField(blank=False)
 
     def __str__(self):
         return self.nom
 
     def dico(self):
         return {"nom": self.nom, "prenom": self.prenom, "age": self.age}
+
+
+class Personne(models.Model):
+    pro = 'PROFESSIONEL'
+    ama = 'AMATEUR'
+    type = [
+        (pro, 'PROFESSIONEL'),
+        (ama, 'AMATEUR'),
+    ]
+    pseudo = models.CharField(max_length=100, blank=False)
+    nomprenom = models.CharField(max_length=100, blank=False)
+    mail = models.EmailField(max_length=100, blank=False)
+    password = models.CharField(max_length=100, blank=False)
+    type = models.CharField(max_length=30, choices=type, default=ama, blank=False)
+
+    def __str__(self):
+        return self.pseudo
+
+    def dico(self):
+        return {"pseudo": self.pseudo, "nomprenom": self.nomprenom, "mail": self.mail, "type": self.type, "password": self.password}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+</head>
+<body>
+    <p>Inscription</p>
+    <form method="post" action="/appfilmo/personne/affichage_per/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="S'inscrire">
+    </form>
+</body>
+</html>

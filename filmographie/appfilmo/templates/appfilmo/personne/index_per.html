@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des personnes</title>
+</head>
+<body>
+<a href="/appfilmo/index_main">Page principale</a>
+<br>
+<a href="/appfilmo/personne/formulaire_per">S'inscrire</a>
+
+<ol>
+  {% for l in liste %}
+    <li> {{l}}
+        <a href="/appfilmo/personne/affiche_personne/{{l.id}}/">Affiche</a>
+        <a href="/appfilmo/personne/update_per/{{l.id}}/">Mise a jour</a>
+        <a href="/appfilmo/personne/delete_per/{{l.id}}/">Supprimer</a>
+    </li>
+  {% endfor %}
+</ol>
+</body>
+</html>

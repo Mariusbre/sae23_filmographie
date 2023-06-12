@@ -1,5 +1,5 @@
 from . import models
-from .forms import FilmsForm, CatForm, ActForm
+from .forms import FilmsForm, CatForm, ActForm, PerForm, LienForm
 from django.shortcuts import render, HttpResponseRedirect
 
 
@@ -184,3 +184,64 @@ def update_act(request, id):
     acteurs = models.Acteurs.objects.get(pk=id)
     form = ActForm(acteurs.dico())
     return render(request, "appfilmo/acteurs/update_form_act.html", {"form": form, "id": id})
+
+
+####
+
+
+def formulaire_per(request):
+    if request.method == 'POST':
+        form = PerForm(request.POST)
+        return render(request, "appfilmo/personne/formulaire_per.html", {"form": form})
+    else:
+        form = PerForm()
+        return render(request, 'appfilmo/personne/formulaire_per.html', {"form": form})
+
+
+def affichage_per(request):
+    if request.method == 'POST':
+        form = PerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/appfilmo/personne/index_per/")
+    else:
+        form = PerForm()
+    return render(request, 'appfilmo/personne/formulaire_per.html', {"form": form})
+
+
+def index_per(request):
+    liste = list(models.Personne.objects.all())
+    return render(request, 'appfilmo/personne/index_per.html', {"liste": liste})
+
+
+def affiche_personne(request, id):
+    personne = models.Personne.objects.get(pk=id)
+    return render(request, "appfilmo/personne/affiche_personne.html", {"personne": personne})
+
+
+def update_form_per(request, id):
+    personne = models.Personne.objects.get(pk=id)
+    form = PerForm(instance=personne)
+    return render(request, "appfilmo/personne/update_form_per.html", {"form": form, "id": id})
+
+
+def update_traitement_per(request, id):
+    personne = models.Personne.objects.get(pk=id)
+    form = PerForm(request.POST, instance=personne)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/appfilmo/personne/index_per/")
+    else:
+        return render(request, 'appfilmo/personne/update_form_per.html', {"form": form, "id": id})
+
+
+def delete_per(request, id):
+    personne = models.Personne.objects.get(pk=id)
+    personne.delete()
+    return HttpResponseRedirect("/appfilmo/personne/index_per/")
+
+
+def update_per(request, id):
+    personne = models.Personne.objects.get(pk=id)
+    form = PerForm(personne.dico())
+    return render(request, "appfilmo/personne/update_form_per.html", {"form": form, "id": id})

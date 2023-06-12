@@ -30,4 +30,13 @@ urlpatterns = [
     path('acteurs/delete_act/<int:id>/', views.delete_act),
     path('acteurs/update_act/<int:id>/', views.update_act),
     path('acteurs/update_traitement_act/<int:id>/', views.update_traitement_act),
+    ##
+    path('personne/affiche_personne/<int:id>/', views.affiche_personne),
+    path('personne/formulaire_per/', views.formulaire_per),
+    path('personne/update_form_per/', views.update_form_per),
+    path('personne/affichage_per/', views.affichage_per),
+    path('personne/index_per/', views.index_per),
+    path('personne/delete_per/<int:id>/', views.delete_per),
+    path('personne/update_per/<int:id>/', views.update_per),
+    path('personne/update_traitement_per/<int:id>/', views.update_traitement_per),
 ]

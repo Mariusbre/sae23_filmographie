@@ -8,11 +8,10 @@ class FilmsForm(ModelForm):
 
     class Meta:
         model = models.Films
-        fields = ('titre', 'realisateur', 'acteur_principal', 'date_sortie', 'categorie')
+        fields = ('titre', 'realisateur', 'date_sortie', 'categorie')
         labels = {
             'titre': 'Titre',
             'realisateur': 'Réalisateur',
-            'acteur_principal': 'Acteur principal',
             'date_sortie': 'Date de sortie',
             'categorie': 'Genre'
         }
@@ -36,4 +35,17 @@ class ActForm(ModelForm):
             'nom': 'Nom',
             'prenom': 'Prénom',
             'age': 'Age',
+        }
+
+
+class PerForm(ModelForm):
+    class Meta:
+        model = models.Personne
+        fields = ('pseudo', 'nomprenom', 'mail', 'password', 'type')
+        labels = {
+            'pseudo': 'Pseudo',
+            'nomprenom': 'Nom et prénom',
+            'mail': 'Mail',
+            'password': 'Mot de passe',
+            'type': 'Type',
         }

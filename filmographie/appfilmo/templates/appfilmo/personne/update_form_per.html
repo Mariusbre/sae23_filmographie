@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mise à jour des informations</title>
+</head>
+<body>
+    <p>Mise à jour des informations</p>
+    <form method="post" action="/appfilmo/personne/update_traitement_per/{{id}}/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Mettre à jour">
+    </form>
+</body>
+</html>
