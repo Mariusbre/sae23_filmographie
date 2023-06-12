@@ -26,3 +26,14 @@ class CatForm(ModelForm):
             'titre_cat': 'Catégorie',
             'description': 'Description',
         }
+
+
+class ActForm(ModelForm):
+    class Meta:
+        model = models.Acteurs
+        fields = ('nom', 'prenom', 'age')
+        labels = {
+            'nom': 'Nom',
+            'prenom': 'Prénom',
+            'age': 'Age',
+        }
