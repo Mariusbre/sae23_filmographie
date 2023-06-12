@@ -31,7 +31,9 @@ class Acteurs(models.Model):
     nom = models.CharField(max_length=100, blank=False)
     prenom = models.CharField(max_length=100, blank=False)
     age = models.IntegerField(max_length=3,blank=False)
-    films1
+    film1 = models.ManyToManyField('Films', on_delete=models.CASCADE, default=None)
+    film2 = models.ManyToManyField('Films', on_delete=models.CASCADE, default=None)
+    film3 = models.ManyToManyField('Films', on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.nom
