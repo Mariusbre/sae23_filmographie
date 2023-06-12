@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Acteurs</title>
 </head>
 <body>
-
+<a href="/appfilmo/index_main">Page principale</a>
+<ol>
+    <a href="/appfilmo/acteurs/formulaire_act">Ajouter un acteur</a>
+    {% for l in liste %}
+    <li> {{l}}
+        <a href="/appfilmo/acteurs/affiche_acteur/{{l.id}}/">Affiche</a>
+        <a href="/appfilmo/acteurs/update_act/{{l.id}}/">Mise a jour</a>
+        <a href="/appfilmo/acteurs/delete_act/{{l.id}}/">Supprimer</a>
+    </li>
+    {% endfor %}
+</ol>
 </body>
 </html>

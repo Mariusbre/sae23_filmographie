@@ -1,5 +1,5 @@
 from . import models
-from .forms import FilmsForm, CatForm
+from .forms import FilmsForm, CatForm, ActForm
 from django.shortcuts import render, HttpResponseRedirect
 
 
@@ -130,57 +130,57 @@ def update_cat(request, id):
 
 def formulaire_act(request):
     if request.method == 'POST':
-        form = CatForm(request.POST)
+        form = ActForm(request.POST)
         return render(request, "appfilmo/acteurs/formulaire_act.html", {"form": form})
     else:
-        form = CatForm()
+        form = ActForm()
         return render(request, 'appfilmo/acteurs/formulaire_act.html', {"form": form})
 
 
 def affichage_act(request):
     if request.method == 'POST':
-        form = CatForm(request.POST)
+        form = ActForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect("/appfilmo/acteurs/index_act/")
     else:
-        form = CatForm()
+        form = ActForm()
     return render(request, 'appfilmo/acteurs/formulaire_act.html', {"form": form})
 
 
 def index_act(request):
-    liste = list(models.Categorie.objects.all())
+    liste = list(models.Acteurs.objects.all())
     return render(request, 'appfilmo/acteurs/index_act.html', {"liste": liste})
 
 
 def affiche_acteur(request, id):
-    categorie = models.Categorie.objects.get(pk=id)
-    return render(request, "appfilmo/acteurs/affiche_acteur.html", {"categorie": categorie})
+    acteurs = models.Acteurs.objects.get(pk=id)
+    return render(request, "appfilmo/acteurs/affiche_acteur.html", {"acteurs": acteurs})
 
 
 def update_form_act(request, id):
-    categorie = models.Categorie.objects.get(pk=id)
-    form = CatForm(instance=categorie)
-    return render(request, "appfilmo/acteurs/update_form_cat.html", {"form": form, "id": id})
+    acteurs = models.Acteurs.objects.get(pk=id)
+    form = ActForm(instance=acteurs)
+    return render(request, "appfilmo/acteurs/update_form_act.html", {"form": form, "id": id})
 
 
 def update_traitement_act(request, id):
-    categorie = models.Categorie.objects.get(pk=id)
-    form = CatForm(request.POST, instance=categorie)
+    acteurs = models.Acteurs.objects.get(pk=id)
+    form = ActForm(request.POST, instance=acteurs)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/appfilmo/acteurs/index_cat/")
+        return HttpResponseRedirect("/appfilmo/acteurs/index_act/")
     else:
-        return render(request, 'appfilmo/acteurs/update_form_cat.html', {"form": form, "id": id})
+        return render(request, 'appfilmo/acteurs/update_form_act.html', {"form": form, "id": id})
 
 
 def delete_act(request, id):
-    categorie = models.Categorie.objects.get(pk=id)
-    categorie.delete()
-    return HttpResponseRedirect("/appfilmo/acteurs/index_cat/")
+    acteurs = models.Acteurs.objects.get(pk=id)
+    acteurs.delete()
+    return HttpResponseRedirect("/appfilmo/acteurs/index_act/")
 
 
 def update_act(request, id):
-    categorie = models.Categorie.objects.get(pk=id)
-    form = CatForm(categorie.dico())
-    return render(request, "appfilmo/acteurs/update_form_cat.html", {"form": form, "id": id})
+    acteurs = models.Acteurs.objects.get(pk=id)
+    form = ActForm(acteurs.dico())
+    return render(request, "appfilmo/acteurs/update_form_act.html", {"form": form, "id": id})

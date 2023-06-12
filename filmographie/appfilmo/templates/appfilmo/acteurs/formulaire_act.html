@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ajout d'un acteur</title>
 </head>
 <body>
-
+    <p>Ajout d'un acteur</p>
+    <form method="post" action="/appfilmo/acteurs/affichage_act/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Ajouter">
+    </form>
 </body>
 </html>

@@ -30,7 +30,8 @@ class Categorie(models.Model):
 class Acteurs(models.Model):
     nom = models.CharField(max_length=100, blank=False)
     prenom = models.CharField(max_length=100, blank=False)
-    age = models.BooleanField(max_length=3,blank=False)
+    age = models.IntegerField(max_length=3,blank=False)
+    films1
 
     def __str__(self):
         return self.nom
