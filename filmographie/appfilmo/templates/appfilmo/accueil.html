@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/menuDeroulant.css' %}">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
+    <meta charset="UTF-8">
+    <title>{% block title %}Accueil{% endblock %}</title>
+</head>
+<body>
+
+<h1>{% block h1 %}Bienvenue sur L'Accueil{% endblock %}</h1>
+
+<nav class="menuDeroulantNav">
+
+        <ul class="menuDeroulantUl">
+
+            <li class="menuDeroulantLi">
+                <a class="menuDeroulantA" href="/appfilmo/accueil">Accueil</a>
+            </li>
+
+            <li class="indication menuDeroulantLi">
+                <a class="menuDeroulantA" href="#">Catégories &ensp;</a>
+                <ul class="deroulant">
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/categorie/index_cat/">Liste des catégories</a></li>
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/categorie/formulaire_cat/">Saisie d'une nouvelle catégorie</a></li>
+                </ul>
+            </li>
+
+            <li class="indication menuDeroulantLi">
+                <a class="menuDeroulantA" href="#">Films &ensp;</a>
+                <ul class="deroulant">
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/films/index/">Liste des Films</a></li>
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/films/formulaire/">Saisie d'un nouveau film</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </nav>
+
+<p>{% block content %}SALUT ici c'est l'Accueil{% endblock content %}</p>
+
+</body>
+</html>
