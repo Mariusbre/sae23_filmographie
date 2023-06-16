@@ -1,0 +1,23 @@
+{% extends "appfilmo/accueil.html" %}
+
+{% block title %}
+    Personne déjà inscrites
+{% endblock %}
+
+{% block h1 %}
+    Liste des Personne déjà inscrites
+{% endblock %}
+
+{% block content %}
+<p class="main">Voici la liste personnes déjà inscrites</p>
+
+<div class="sidebar sidebarcat">
+  {% for l in liste %}
+    <li> {{l}}
+        <button><a href="/appfilmo/personne/affiche_personne/{{l.id}}/">💬</a></button>
+        <button><a href="/appfilmo/personne/update_per/{{l.id}}/">⚙️</a></button>
+        <button><a href="/appfilmo/personne/delete_per/{{l.id}}/">❌</a></button>
+    </li>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "appfilmo/accueil2.html" %}
+
+{% block title %}
+    Liste des Commentaires
+{% endblock %}
+{% block h1 %}
+    Liste des Commentaires
+{% endblock %}
+
+{% block content %}
+    <title>Commentaires</title>
+<p class="main">Voici la liste des commentaires</p>
+<div class="sidebar sidebarcat">
+<a>Commentaires :</a>
+    <br>
+    <br>
+  {% for l in liste %}
+    <li>
+        {{l}}
+        <button><a href="/appfilmo/commentaire/affiche_commentaire/{{l.id}}/">💬</a></button>
+        <button><a href="/appfilmo/commentaire/update_com/{{l.id}}/">⚙️</a></button>
+        <button><a href="/appfilmo/commentaire/delete_com/{{l.id}}/">❌</a></button>
+    </li>
+  {% endfor %}
+    <button type="submit"><a href="/appfilmo/films/index/">RETOUR ↩️</a></button>
+</div>
+{% endblock %}

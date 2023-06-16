@@ -1,0 +1,23 @@
+{% extends "appfilmo/accueil2.html" %}
+{% block title %}
+    {{acteurs.nom}} {{acteurs.prenom}}
+{% endblock %}
+
+{% block h1 %}{{acteurs.nom}} {{acteurs.prenom}}{% endblock %}
+
+{% block content %}
+<div class="sidebar2">
+        <p>
+        {{acteurs.nom}}
+        {{acteurs.prenom}}
+            <br><br>
+        Age : {{acteurs.age}}
+
+    </p>
+        <br>
+        <br>
+
+    </p>
+    <button type="submit"><a href="/appfilmo/acteurs/liste_act/">RETOUR ↩</a></button>
+    </div>
+{% endblock %}

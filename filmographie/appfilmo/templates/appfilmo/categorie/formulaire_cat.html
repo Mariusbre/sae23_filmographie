@@ -1,0 +1,18 @@
+{% extends "appfilmo/accueil.html" %}
+
+{% block title %}
+    Saisie d'une nouvelle catégorie
+{% endblock %}
+
+{% block h1 %}
+    Saisie d'une nouvelle catégorie
+{% endblock %}
+
+{% block content %}
+<br>
+    <form class="sidebar2" method="post" action="/appfilmo/categorie/affichage_cat/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="✔️">
+    </form>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "appfilmo/accueil.html" %}
+
+{% block title %}
+    Liste des catégories
+{% endblock %}
+
+{% block h1 %}
+    Liste des Catégories
+{% endblock %}
+
+{% block content %}
+<p class="main">Voici la liste des catégories</p>
+<div class="sidebar sidebarcat">
+    {% for l in liste %}
+    <li>
+        {{l}}
+        <button><a href="/appfilmo/categorie/affiche_categorie/{{l.id}}/">💬</a></button>
+        <button><a href="/appfilmo/categorie/update_cat/{{l.id}}/">⚙️</a></button>
+        <button><a href="/appfilmo/categorie/delete_cat/{{l.id}}/">❌</a></button>
+    </li>
+    {% endfor %}
+</div>
+{% endblock content %}

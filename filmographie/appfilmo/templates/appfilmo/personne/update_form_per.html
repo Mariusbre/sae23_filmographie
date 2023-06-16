@@ -1,0 +1,18 @@
+{% extends "appfilmo/accueil2.html" %}
+
+{% block title %}
+    Mise à jour
+{% endblock %}
+
+{% block h1 %}
+    Mise à jour des informations personnelles
+{% endblock %}
+
+{% block content %}
+    <p class="main">Mise à jour</p>
+    <form class="sidebar2" method="post" action="/appfilmo/personne/update_traitement_per/{{id}}/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="✔">
+    </form>
+{% endblock %}

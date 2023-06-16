@@ -1,0 +1,44 @@
+{% extends "appfilmo/accueil2.html" %}
+
+{% block title %}
+    Affiche du film : {{films.titre}}
+{% endblock %}
+
+{% block h1 %}{{films.titre}}{% endblock %}
+
+{% block content %}
+
+<div class="sidebar2">
+    <p>
+        {{films.titre}}
+        <br>
+        <br>
+        A été réalisé par {{films.realisateur}}
+        <br>
+        <br>
+        Ce film est sorti le {{films.date_sortie}}
+        <br>
+        <br>
+        Il appartient à la categorie : {{films.categorie}}
+        <br>
+        <br>
+        L'acteur principal est {{films.acteurs}}
+        <br>
+        <br>
+        Moyenne du film :{{somme}}/10
+        <br>
+        <br>
+        Note la plus haute : {{Maximum_value}}/10
+        <br>
+        Note la plus basse : {{Minimum_value}}/10
+        <br>
+        <br>
+    </p>
+    <button type="submit"><a href="/appfilmo/commentaire/formulaire_com/">Laisser un commentaire</a></button>
+    <button type="submit"><a href="/appfilmo/commentaire/liste_com/">Voir les commentaires</a></button>
+    <br>
+    <br>
+    <button type="submit"><a href="/appfilmo/films/liste_films/">RETOUR ↩</a></button>
+
+    </div>
+{% endblock %}

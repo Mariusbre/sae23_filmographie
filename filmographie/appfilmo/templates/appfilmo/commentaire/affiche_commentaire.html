@@ -1,0 +1,33 @@
+{% extends "appfilmo/accueil2.html" %}
+
+{% block title %}
+    Commentaire du film : {{films.titre}}
+{% endblock %}
+
+{% block h1 %}{{films.nom}}{% endblock %}
+
+{% block content %}
+<div class="sidebar2">
+    <p>
+        Nom du film : {{commentaire.film}}
+        <br>
+        <br>
+        <br>
+        <br>
+        Ce commentaire a été écrit le {{commentaire.date}}
+        <br>
+        <br>
+        {{commentaire.personne}} a mit la note : {{commentaire.note}}/10
+        <br>
+        <br>
+        Voici le commentaire :
+        <br>
+        <br>
+        {{commentaire.commentaire}}
+        <br>
+        <br>
+
+    <button type="submit"><a href="/appfilmo/commentaire/liste_com/">RETOUR ↩️</a></button>
+    </p>
+</div>
+{% endblock %}

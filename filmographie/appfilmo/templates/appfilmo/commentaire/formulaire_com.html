@@ -1,0 +1,17 @@
+{% extends "appfilmo/accueil.html" %}
+
+{% block title %}
+   Nouveau commentaire
+{% endblock %}
+
+{% block h1 %}
+    Saisie d'un nouveau commentaire
+{% endblock %}
+
+{% block content %}
+    <form class="sidebar2 sidebar3" method="post" action="/appfilmo/commentaire/affichage_com/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="✔️">
+    </form>
+{% endblock %}

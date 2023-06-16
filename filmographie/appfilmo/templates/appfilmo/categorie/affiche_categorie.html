@@ -1,0 +1,25 @@
+{% extends "appfilmo/accueil2.html" %}
+
+{% block title %}
+    Affiche de la catégorie : {{categorie.titre_cat}}
+{% endblock %}
+
+{% block h1 %}{{categorie.titre_cat}}{% endblock %}
+
+{% block content %}
+
+<div class="sidebar2">
+
+    <p>Description de la catégorie : {{categorie.titre_cat}}
+        <br>
+        <br>
+        <br>
+        {{categorie.description}}
+        <br>
+        <br>
+
+    </p>
+    <button type="submit"><a href="/appfilmo/categorie/liste_cat/">RETOUR ↩</a></button>
+
+    </div>
+{% endblock %}

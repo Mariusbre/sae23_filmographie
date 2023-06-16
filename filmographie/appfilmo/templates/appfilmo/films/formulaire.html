@@ -1,0 +1,18 @@
+{% extends "appfilmo/accueil.html" %}
+
+{% block title %}
+    Saisie d'un nouveau film
+{% endblock %}
+
+{% block h1 %}
+    Saisie d'un nouveau film
+{% endblock %}
+
+{% block content %}
+<br>
+    <form class="sidebar2" method="post" action="/appfilmo/films/affichage/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="✔️">
+    </form>
+{% endblock content %}

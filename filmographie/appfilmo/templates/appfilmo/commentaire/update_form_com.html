@@ -1,0 +1,17 @@
+{% extends "appfilmo/accueil2.html" %}
+
+{% block title %}
+    Mise à jour
+{% endblock %}
+
+{% block h1 %}
+    Update du Commentaire
+{% endblock %}
+{% block content %}
+    <p class="main">Mise à jour du commentaire</p>
+    <form class="sidebar2" method="post" action="/appfilmo/commentaire/update_traitement_com/{{id}}/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="✔">
+    </form>
+{% endblock %}

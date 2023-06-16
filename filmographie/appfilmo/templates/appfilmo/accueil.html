@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/menuDeroulant.css' %}">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
+    <meta charset="UTF-8">
+    <title>{% block title %}Accueil{% endblock %}</title>
+</head>
+<body>
+
+<h1>{% block h1 %}Bienvenue sur l'accueil{% endblock %}</h1>
+
+<button class="buttonall button1" type="submit"><a href="/appfilmo/personne/formulaire_per/">S'inscrire</a></button>
+<button class="buttonall button2" type="submit"><a href="/appfilmo/personne/liste_per/">Personnes déjà inscrites</a></button>
+
+<nav class="menuDeroulantNav">
+
+        <ul class="menuDeroulantUl">
+
+            <li class="menuDeroulantLi">
+                <a class="menuDeroulantA" href="/appfilmo/accueil">Accueil</a>
+            </li>
+
+            <li class="indication menuDeroulantLi">
+                <a class="menuDeroulantA" href="#">Catégories &ensp;</a>
+                <ul class="deroulant">
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/categorie/liste_cat/">Liste des catégories</a></li>
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/categorie/formulaire_cat/">Saisie d'une nouvelle catégorie</a></li>
+                </ul>
+            </li>
+
+            <li class="indication menuDeroulantLi">
+                <a class="menuDeroulantA" href="#">Films &ensp;</a>
+                <ul class="deroulant">
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/films/liste_films/">Liste des Films</a></li>
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/films/formulaire/">Saisie d'un nouveau film</a></li>
+                </ul>
+            </li>
+
+            <li class="indication menuDeroulantLi">
+                <a class="menuDeroulantA" href="#">Acteurs &ensp;</a>
+                <ul class="deroulant">
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/acteurs/liste_act/">Liste des Acteurs</a></li>
+                    <li class="menuDeroulantLi"><a class="menuDeroulantA" href="/appfilmo/acteurs/formulaire_act/">Saisie d'un nouvel acteur</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </nav>
+<br>
+<br>
+<br>
+{% block content %}
+<p class="main">
+    Bienvenue, sur le siteweb de notre sae23
+</p>
+{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "appfilmo/accueil.html" %}
+
+{% block title %}
+    Liste des Acteurs
+{% endblock %}
+{% block h1 %}
+    Liste des Acteurs
+{% endblock %}
+
+{% block content %}
+<p class="main">Voici la liste des acteurs</p>
+<div class="sidebar sidebarautre">
+    {% for l in liste %}
+    <li> {{l}}
+        <button><a href="/appfilmo/acteurs/affiche_acteur/{{l.id}}/">💬</a></button>
+        <button><a href="/appfilmo/acteurs/update_act/{{l.id}}/">⚙️</a></button>
+        <button><a href="/appfilmo/acteurs/delete_act/{{l.id}}/">❌</a></button>
+    </li>
+    {% endfor %}
+</div>
+{% endblock content %}

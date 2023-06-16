@@ -1,0 +1,18 @@
+{% extends "appfilmo/accueil.html" %}
+
+{% block title %}
+    Inscription
+{% endblock %}
+
+{% block h1 %}
+    Inscription
+{% endblock %}
+
+{% block content %}
+<br>
+    <form class="sidebar2" method="post" action="/appfilmo/personne/affichage_per/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="✔️">
+    </form>
+{% endblock %}

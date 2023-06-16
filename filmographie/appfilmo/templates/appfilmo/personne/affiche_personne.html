@@ -1,0 +1,26 @@
+{% extends "appfilmo/accueil2.html" %}
+{% block title %}
+    {{personne.pseudo}}
+{% endblock %}
+
+{% block h1 %}{{personne.pseudo}}{% endblock %}
+
+{% block content %}
+<div class="sidebar2">
+        <p>
+            {{personne.nomprenom}} alias : {{personne.pseudo}}
+            <br><br>
+            Votre mail : {{personne.mail}}
+            <br><br>
+            Vous êtes : {{personne.type}}
+            <br><br>
+            Votre mot de passe est : {{personne.password}}
+            <br><br>
+        <button type="submit"><a href="/appfilmo/personne/liste_per/">RETOUR ↩</a></button>
+        </p>
+</div>
+{% endblock %}
+<body>
+    <a href="/appfilmo/personne/liste_per/">Liste des personnes</a>
+    <br>
+    <p>{{personne.nomprenom}}<br> {{personne.pseudo}}<br> {{personne.mail}}<br> {{personne.type}}</p>
